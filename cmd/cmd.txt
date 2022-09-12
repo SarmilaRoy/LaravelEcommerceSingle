@@ -38,7 +38,27 @@
     
 
    3.2 Roles & Permissions->User Roles Assignment & Removal->
-       Assignment:App\Http\Controllers\Auth\RegisteredUserController;
+       Assignment:App\Http\Controllers\Auth\RegisteredUserController: $user->attachRole('user');
+
+
+
+ 4.controller route:
+// Route::get('/userprofile',[DashboardController::class,'index']);
+
+//Controller route
+// Route::controller(DashboardController::class)->group(function(){
+//     Route::get('/userprofile','index');
+//     Route::get('/userprofile2','index2');
+// });
+
+//Middleware
+Route::middleware(['auth','role:user'])->group(function(){
+    Route::controller(DashboardController::class)->group(function(){
+        Route::get('/userprofile','index');
+        Route::get('/userprofile2','index2');
+    });
+});
+
        
 
 
