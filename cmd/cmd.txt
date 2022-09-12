@@ -1,21 +1,21 @@
-  Create project:
+  1.Create project:
    composer create-project laravel/laravel:^8.0 LaravelEcommerceSingle
    cd LaravelEcommerceSingle/
    code .
-  Package Setup Breeze
+  2.Package Setup Breeze
    composer require laravel/breeze --dev
    php artisan breeze:install
    php artisan migrate
    npm install
    npm run dev
  
-  Create Role Laracast
+  3.Create Role Laracast
     composer require santigarcor/laratrust
     php artisan vendor:publish --tag="laratrust"
     php artisan laratrust:setup
     composer dump-autoload
 
-    Seeder
+    3.1. Seeder
      php artisan laratrust:seeder
      php artisan vendor:publish --tag="laratrust-seeder"
      composer dump-autoload
@@ -33,6 +33,14 @@
             'profile' => 'r,u'
         ]
     ],
+    php artisan migrate
+    php artisan db:seed
+    
+
+   3.2 Roles & Permissions->User Roles Assignment & Removal->
+       Assignment:App\Http\Controllers\Auth\RegisteredUserController;
+       
+
 
 
    
