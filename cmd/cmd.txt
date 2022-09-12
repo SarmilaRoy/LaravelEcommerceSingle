@@ -1,0 +1,39 @@
+  Create project:
+   composer create-project laravel/laravel:^8.0 LaravelEcommerceSingle
+   cd LaravelEcommerceSingle/
+   code .
+  Package Setup Breeze
+   composer require laravel/breeze --dev
+   php artisan breeze:install
+   php artisan migrate
+   npm install
+   npm run dev
+ 
+  Create Role Laracast
+    composer require santigarcor/laratrust
+    php artisan vendor:publish --tag="laratrust"
+    php artisan laratrust:setup
+    composer dump-autoload
+
+    Seeder
+     php artisan laratrust:seeder
+     php artisan vendor:publish --tag="laratrust-seeder"
+     composer dump-autoload
+     database/seeds/DatabaseSeeder.php:$this->call(LaratrustSeeder::class);
+     config/laratrust_seeder.php:
+
+      'roles_structure' => [
+        'admin' => [
+            'users' => 'c,r,u,d',
+            'payments' => 'c,r,u,d',
+            'profile' => 'r,u'
+        ],
+        'user' => [
+            'users' => 'c,r,u,d',
+            'profile' => 'r,u'
+        ]
+    ],
+
+
+   
+ 
