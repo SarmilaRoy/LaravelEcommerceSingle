@@ -1,0 +1,39 @@
+Category-
+Id
+Category Name(String)
+sub Category Count(int)
+Category Product Count(int)
+Slug(String)
+
+Sub Category-
+Id
+Sub Category Name(String)
+Category Id
+Category Name
+Sub Category Product Count(int)
+Slug(String)
+
+Products-
+Id
+Product Name(String)
+Product Short Description(String/text)
+Product Long Description(String/text)
+Product Price(Floating)
+Product category Name(String)
+Product Sub Category Name(String)
+Product Count(int)
+Product Image(String)
+Product Slug(String)
+
+Orders-
+Id
+Product Name
+Product Id
+Product Price
+Product Quantity
+Product Total Price
+Order Status
+Order Submission Date
+
+
+

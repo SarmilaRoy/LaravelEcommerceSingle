@@ -8,7 +8,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>@yield('page_title')</title>
 
     <meta name="description" content="" />
 
@@ -58,7 +58,7 @@
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
                     <a href="index.html" class="app-brand-link">
-                        <span class="app-brand-text demo menu-text fw-bolder ms-2">SingleEcommerce</span>
+                        <span class="app-brand-text demo menu-text fw-bolder ms-2">SingleEcom</span>
                     </a>
 
                     <a href="javascript:void(0);"
