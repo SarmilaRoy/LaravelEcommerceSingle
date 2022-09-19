@@ -14,8 +14,20 @@
                         <h5 class="mb-0">Add New Category</h5>
                         <small class="text-muted float-end">Input Information</small>
                     </div>
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <div class="card-body">
-                        <form action="" method="Post">
+                        <form action="{{ route('storecategory') }}" method="Post">
+                            @csrf
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Category Name</label>
                                 <div class="col-sm-10">
