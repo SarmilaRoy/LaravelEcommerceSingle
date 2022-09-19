@@ -19,6 +19,7 @@ Product Name(String)
 Product Short Description(String/text)
 Product Long Description(String/text)
 Product Price(Floating)
+Product Quantity
 Product category Name(String)
 Product Sub Category Name(String)
 Product Count(int)
