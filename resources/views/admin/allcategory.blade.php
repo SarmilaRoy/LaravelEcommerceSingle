@@ -20,25 +20,25 @@
                             <th>Id</th>
                             <th>Category Name</th>
                             <th>Sub Category</th>
-                            <th>Products</th>
+                            <th>Slug</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        <tr>
-                            <td>1</td>
-                            <td>Electronices</td>
-                            <td>10</td>
-                            <td>100</td>
-                            <td>
-
-                                <a href="#"><i class="fa fa-edit fa-2x"></i></a>
-                                <a href="#"
-                                    onclick="confirm('Are you sure, You want to delete this category ?')||event.stopimmediatepropagation()"
-                                    style="margin-left: 10px;"><i class="fa fa-times fa-2x text-danger"></i></a>
-                            </td>
-
-                        </tr>
+                        @foreach ($categories as $key => $category)
+                            <tr>
+                                <td>{{ $category->id }}</td>
+                                <td>{{ $category->category_name }}</td>
+                                <td>{{ $category->subcategory_count }}</td>
+                                <td>{{ $category->slug }}</td>
+                                <td>
+                                    <a href="#"><i class="fa fa-edit fa-2x"></i></a>
+                                    <a href="#"
+                                        onclick="confirm('Are you sure, You want to delete this category ?')||event.stopimmediatepropagation()"
+                                        style="margin-left: 10px;"><i class="fa fa-times fa-2x text-danger"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
 
                     </tbody>
                 </table>
