@@ -33,4 +33,21 @@ class SubCategoryController extends Controller
 
         return redirect()->route('allsubcategory')->with('msg','Sub Category Added succesfully');
     }
+
+    public function editSubCategory($id){
+        $subcategory_info=SubCategory::findOrFail($id);
+        return view('admin.editsubcategory',['subcategory_info'=> $subcategory_info]);
+    }
+    public function updateSubCategory(Request $request){
+        $request->validate([
+            'subcategory_name' => 'required|unique:sub_categories'
+        ]);
+        $sub_category_id = $request->sub_category_id;
+        SubCategory::findOrFail($sub_category_id)->update([
+            'subcategory_name' => $request->subcategory_name,
+            'slug' => strtolower(str_replace(' ','-',$request->subcategory_name))
+        ]);
+        return redirect()->route('allsubcategory')->with('msg','Sub Category Updated succesfully');
+    }
+
 }

@@ -35,8 +35,8 @@
                                 {{-- <a href="" class="btn btn-sm btn-success">Edit</a>
                                 <a href="" onclick="return confirm('are you sure to delete?')"
                                     class="btn btn-sm btn-danger">Delete</a> --}}
-                                <a href="" class="btn btn-primary">Edit</a>
-                                <a href="" class="btn btn-warning">Delete</a>
+                                <a href="{{ route('editsubcategory',$subcategory->id) }}" class="btn btn-primary">Edit</a>
+                                <a href="{{ route('deletesubcategory',$subcategory->id) }}" class="btn btn-warning">Delete</a>
                                 {{-- <a href="" class="btn btn-success"><i class="las la-edit"></i></a>
                                 <a href="" class="btn btn-danger"><i class="las la-times"></i></a> --}}
                             </td>
