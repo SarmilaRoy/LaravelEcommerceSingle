@@ -6,6 +6,11 @@
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Page/</span> All Sub Category</h4>
         <!-- Bootstrap Table with Header - Light -->
+        @if (session()->has('msg'))
+            <div class="alert alert-success">
+                {{ session()->get('msg') }}
+            </div>
+        @endif
         <div class="card">
             <h5 class="card-header">Available Sub Category Information</h5>
             <div class="table-responsive text-nowrap">
@@ -29,7 +34,7 @@
                                 {{-- <a href="" class="btn btn-sm btn-success">Edit</a>
                                 <a href="" onclick="return confirm('are you sure to delete?')"
                                     class="btn btn-sm btn-danger">Delete</a> --}}
-                                    <a href="" class="btn btn-primary">Edit</a>
+                                <a href="" class="btn btn-primary">Edit</a>
                                 <a href="" class="btn btn-warning">Delete</a>
                                 {{-- <a href="" class="btn btn-success"><i class="las la-edit"></i></a>
                                 <a href="" class="btn btn-danger"><i class="las la-times"></i></a> --}}
