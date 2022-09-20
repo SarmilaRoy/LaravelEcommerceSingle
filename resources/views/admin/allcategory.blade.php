@@ -33,7 +33,7 @@
                                 <td>{{ $category->slug }}</td>
                                 <td>
                                     <a href="{{ route('editcategory',$category->id) }}"><i class="fa fa-edit fa-2x"></i></a>
-                                    <a href="#"
+                                    <a href="{{ route('deletecategory',$category->id) }}"
                                         onclick="confirm('Are you sure, You want to delete this category ?')||event.stopimmediatepropagation()"
                                         style="margin-left: 10px;"><i class="fa fa-times fa-2x text-danger"></i></a>
                                 </td>
