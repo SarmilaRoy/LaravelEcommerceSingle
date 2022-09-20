@@ -50,4 +50,11 @@ class SubCategoryController extends Controller
         return redirect()->route('allsubcategory')->with('msg','Sub Category Updated succesfully');
     }
 
+    public function deleteSubCategory($id){
+        $cat_id=SubCategory::where('id',$id)->value('category_id');
+        SubCategory::findOrFail($id)->delete();
+        Category::where('id',$cat_id)->decrement('subcategory_count',1);
+        return redirect()->route('allsubcategory')->with('msg','Sub Category Deleted succesfully');
+    }
+
 }
