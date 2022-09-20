@@ -9,7 +9,8 @@ use App\Models\SubCategory;
 class SubCategoryController extends Controller
 {
     public function index(){
-        return view('admin.allsubcategory');
+        $subcategories=SubCategory::latest()->simplePaginate(5);
+        return view('admin.allsubcategory',compact('subcategories'));
     }
     public function addSubCategory(){
         $categories= Category::latest()->get();

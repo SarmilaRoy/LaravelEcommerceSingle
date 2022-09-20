@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Page/</span> All Sub Category</h4>
+        <h4 class="fw-bold py-2 mb-4"><span class="text-muted fw-light">Page/</span> All Sub Category</h4>
         <!-- Bootstrap Table with Header - Light -->
         @if (session()->has('msg'))
             <div class="alert alert-success">
@@ -25,11 +25,12 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                        @foreach ($subcategories as $subcategory)
                         <tr>
-                            <td>1</td>
-                            <td>Fan</td>
-                            <td>Electronices</td>
-                            <td>100</td>
+                            <td>{{ $subcategory->id }}</td>
+                            <td>{{ $subcategory->subcategory_name}}</td>
+                            <td>{{ $subcategory->category_name }}</td>
+                            <td>{{ $subcategory->product_count }}</td>
                             <td>
                                 {{-- <a href="" class="btn btn-sm btn-success">Edit</a>
                                 <a href="" onclick="return confirm('are you sure to delete?')"
@@ -39,11 +40,12 @@
                                 {{-- <a href="" class="btn btn-success"><i class="las la-edit"></i></a>
                                 <a href="" class="btn btn-danger"><i class="las la-times"></i></a> --}}
                             </td>
-
                         </tr>
+                        @endforeach
 
                     </tbody>
                 </table>
+                {{ $subcategories->links() }}
             </div>
         </div>
     @endsection
