@@ -50,6 +50,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
     Route::controller(ProductController::class)->group(function(){
         Route::get('/admin/all-products','index')->name('allproducts');
         Route::get('/admin/add-products','addProducts')->name('addproducts');
+        Route::post('/admin/store-products','storeProducts')->name('storeproducts');
     });
     Route::controller(OrderController::class)->group(function(){
         Route::get('/admin/pending-orders','index')->name('pendingorders');

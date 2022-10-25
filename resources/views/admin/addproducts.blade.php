@@ -15,7 +15,8 @@
                         <small class="text-muted float-end">Input Information</small>
                     </div>
                     <div class="card-body">
-                        <form action="" method="Post">
+                        <form action="{{ route('storeproducts') }}" method="Post" enctype="multipart/form-data">
+                            @csrf
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Product Name</label>
                                 <div class="col-sm-10">
@@ -83,7 +84,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Upload Product Image</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="file" id="formFile" />
+                                    <input class="form-control" type="file" id="product_img" name="product_img"/>
                                 </div>
                             </div>
 
