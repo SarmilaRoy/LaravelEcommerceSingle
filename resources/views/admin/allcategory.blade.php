@@ -20,6 +20,7 @@
                             <th>Id</th>
                             <th>Category Name</th>
                             <th>Sub Category</th>
+                            <th>Products</th>
                             <th>Slug</th>
                             <th>Actions</th>
                         </tr>
@@ -30,6 +31,7 @@
                                 <td>{{ $category->id }}</td>
                                 <td>{{ $category->category_name }}</td>
                                 <td>{{ $category->subcategory_count }}</td>
+                                <td>{{ $category->product_count }}</td>
                                 <td>{{ $category->slug }}</td>
                                 <td>
                                     <a href="{{ route('editcategory',$category->id) }}"><i class="fa fa-edit fa-2x"></i></a>
