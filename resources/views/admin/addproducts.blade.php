@@ -1,6 +1,6 @@
 @extends('admin.layouts.template')
 @section('page_title')
-Add Product - Single Ecom 
+    Add Product - Single Ecom
 @endsection
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
@@ -27,7 +27,7 @@ Add Product - Single Ecom
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Product Price</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="product_price" name="product_price"
+                                    <input type="number" class="form-control" id="price" name="price"
                                         placeholder="12" />
                                 </div>
                             </div>
@@ -35,44 +35,48 @@ Add Product - Single Ecom
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Product Quantity</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="product_quantity" name="product_quantity"
+                                    <input type="number" class="form-control" id="quantity" name="quantity"
                                         placeholder="100" />
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label" for="basic-default-name">Product Short Description</label>
+                                <label class="col-sm-2 col-form-label" for="basic-default-name">Product Short
+                                    Description</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" id="" name="" cols="30" rows="10"></textarea>
+                                    <textarea class="form-control" id="product_short_des" name="product_short_des" cols="30" rows="10"></textarea>
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label" for="basic-default-name">Product Long Description</label>
+                                <label class="col-sm-2 col-form-label" for="basic-default-name">Product Long
+                                    Description</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" id="" name="" cols="30" rows="10"></textarea>
+                                    <textarea class="form-control" id="product_long_des" name="product_long_des" cols="30" rows="10"></textarea>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Select Category</label>
                                 <div class="col-sm-10">
-                                    <select class="form-select" id="category" name="category" aria-label="Default select example">
+                                    <select class="form-select" id="product_category_id" name="product_category_id"
+                                        aria-label="Default select example">
                                         <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                      </select>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Select Sub Category</label>
                                 <div class="col-sm-10">
-                                    <select class="form-select" id="category" name="category" aria-label="Default select example">
+                                    <select class="form-select" id="product_subcategory_id" name="product_subcategory_id"
+                                        aria-label="Default select example">
                                         <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                      </select>
+                                        @foreach ($subcategories as $subcategory)
+                                            <option value="{{ $subcategory->id }}">{{ $subcategory->subcategory_name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 
@@ -82,7 +86,7 @@ Add Product - Single Ecom
                                     <input class="form-control" type="file" id="formFile" />
                                 </div>
                             </div>
-                          
+
                             <div class="row justify-content-end">
                                 <div class="col-sm-10">
                                     <button type="submit" class="btn btn-primary">Add Product</button>
