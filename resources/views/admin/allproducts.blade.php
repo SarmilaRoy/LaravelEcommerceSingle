@@ -42,7 +42,7 @@
                                     class="btn btn-sm btn-danger">Delete</a> --}}
                                     {{-- <a href="" class="btn btn-primary">Edit</a>
                                 <a href="" class="btn btn-warning">Delete</a> --}}
-                                    <a href="" class="btn btn-success"><i class="las la-edit"></i></a>
+                                    <a href="{{ route('editproduct',$product->id) }}" class="btn btn-success"><i class="las la-edit"></i></a>
                                     <a href="" class="btn btn-warning"><i class="las la-times"></i></a>
                                 </td>
                             </tr>
