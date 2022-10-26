@@ -60,5 +60,28 @@ class ProductController extends Controller
 
         return redirect()->route('allproducts')->with('msg','Products Added succesfully');
     }
+    public function editProductImage($id){
+        $productinfo=Product::findOrFail($id);
+        return view('admin.editproductimage',['productinfo'=> $productinfo]);
+    }
+
+    public function updateProductImage(Request $request){
+        $request->validate([
+            'product_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $product_img_id=$request->product_img_id;
+
+        $image=$request->file('product_img');
+        $img_name=hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+        $request->product_img->move(public_path('upload'),$img_name);
+        $img_url='upload/' . $img_name;
+
+        Product::findOrFail($product_img_id)->update([
+            'product_img' => $img_url,
+        ]);
+        return redirect()->route('allproducts')->with('msg','Products Image Updated succesfully');
+
+    }
 
 }
