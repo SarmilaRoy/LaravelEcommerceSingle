@@ -14,6 +14,15 @@
                         <h5 class="mb-0">Add New Product</h5>
                         <small class="text-muted float-end">Input Information</small>
                     </div>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="card-body">
                         <form action="{{ route('storeproducts') }}" method="Post" enctype="multipart/form-data">
                             @csrf
@@ -75,7 +84,8 @@
                                         aria-label="Default select example">
                                         <option selected>Open this select menu</option>
                                         @foreach ($subcategories as $subcategory)
-                                            <option value="{{ $subcategory->id }}">{{ $subcategory->subcategory_name }}</option>
+                                            <option value="{{ $subcategory->id }}">{{ $subcategory->subcategory_name }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -84,7 +94,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label" for="basic-default-name">Upload Product Image</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="file" id="product_img" name="product_img"/>
+                                    <input class="form-control" type="file" id="product_img" name="product_img" />
                                 </div>
                             </div>
 

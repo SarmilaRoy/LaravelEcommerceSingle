@@ -11,7 +11,8 @@ use App\Models\SubCategory;
 class ProductController extends Controller
 {
     public function index(){
-        return view('admin.allproducts');
+        $products= Product::latest()->get();
+        return view('admin.allproducts',compact('products'));
     }
     public function addProducts(){
         $categories= Category::latest()->get();
