@@ -106,7 +106,15 @@ class ProductController extends Controller
             'price' => $request->price,
             'quantity' => $request->quantity,
         ]);
-        return redirect()->route('allproducts')->with('msg','Products Updated succesfully');
+        return redirect()->route('allproducts')->with('msg','Products Information Updated succesfully');
+    }
+    public function deleteProduct($id){
+        $cat_id=Product::where('id',$id)->value('product_category_id');
+        $subcat_id=Product::where('id',$id)->value('product_subcategory_id');
+        Product::findOrFail($id)->delete();
+        Category::where('id',$cat_id)->decrement('product_count',1);
+        SubCategory::where('id',$subcat_id)->decrement('product_count',1);
+        return redirect()->route('allproducts')->with('msg','Product Deleted succesfully');
     }
 
 }
