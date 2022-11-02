@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -22,6 +23,16 @@ use App\Http\Controllers\HomeController;
 
 Route::controller(HomeController::class)->group(function(){
     Route::get('/','index')->name('home');
+});
+Route::controller(UserController::class)->group(function(){
+    Route::get('/category','categoryPage')->name('category');
+    Route::get('/single-product','singleProduct')->name('singleproduct');
+    Route::get('/add-to-cart','addToCart')->name('addtocart');
+    Route::get('/checkout','Checkout')->name('checkout');
+    Route::get('/user-profile','userProfile')->name('userprofile');
+    Route::get('/new-release','NewRelease')->name('newrelease');
+    Route::get('/todays-deal','TodaysDeal')->name('todaysdeal');
+    Route::get('/customer-service','CustomerService')->name('customerservice');
 });
 
 Route::get('/dashboard', function () {
