@@ -20,7 +20,7 @@ use App\Http\Controllers\Admin\OrderController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.layouts.template');
 });
 
 Route::get('/dashboard', function () {
