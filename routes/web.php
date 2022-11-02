@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\HomeController;
 
 
 /*
@@ -19,8 +20,8 @@ use App\Http\Controllers\Admin\OrderController;
 |
 */
 
-Route::get('/', function () {
-    return view('user.layouts.template');
+Route::controller(HomeController::class)->group(function(){
+    Route::get('/','index')->name('home');
 });
 
 Route::get('/dashboard', function () {
